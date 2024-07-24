@@ -1,0 +1,104 @@
+@font-face {
+    font-family: PermanentMarker;
+    src: url("fonts/PermanentMarker-Regular.ttf");
+}
+@font-face {
+    font-family: Zain;
+    src: url("fonts/Zain-Bold.ttf");
+}
+
+:root{
+
+    --cell-color-x: hsl(0, 50%, 50%);
+    --cell-color-o: hsl(180, 50%, 50%);
+
+    --cell-con-border-color-continues: hsl(0, 0%, 80%);
+    --cell-con-border-color-x: hsl(0, 100%, 80%);
+    --cell-con-border-color-o: hsl(180, 100%, 80%);
+    --cell-con-border-color-draw: hsl(270, 100%, 80%);
+
+}
+
+body{
+
+    margin: 0;
+
+    height: 100vh;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    background-color: hsl(0, 0%, 20%);
+
+}
+
+#cellContainer{
+
+    margin: 0 0 80px 0;
+
+    width: 600px;
+
+    display: grid;
+    grid-template-columns: repeat(3, auto);
+
+    font-family: PermanentMarker;
+    text-align: center;
+    vertical-align: middle;
+    line-height: 180px;
+
+    border: 10px dashed hsl(0, 0%, 50%);
+    border-radius: 18px;
+
+}
+
+.cell{
+
+    margin: 10px;
+
+    width: 180px;
+    height: 180px;
+
+    font-size: 100px;
+
+    background-color: hsl(0, 0%, 10%);
+
+    border-radius: 18px;
+    cursor: pointer;
+
+}
+.cell:hover{
+
+    background-color: hsl(0, 0%, 15%);
+
+}
+
+#newGameButton{
+
+    padding: 0;
+    
+    width: 135px;
+    height: 45px;
+
+    font-size: 27px;
+    font-weight: bold;
+    font-family: Zain;
+
+    color: hsl(0, 0%, 20%);
+    background-color: hsl(0, 0%, 70%);
+
+    border: none;
+    border-radius: 10px;
+    
+}
+#newGameButton:hover{
+
+    border: 5px solid hsl(0, 0%, 20%);
+
+}
+#newGameButton:active{
+
+    color: hsl(0, 0%, 0%);
+
+}
