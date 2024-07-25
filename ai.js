@@ -28,7 +28,7 @@ export function findBestMove(givenState, computersChar) {
     let bestMove;
 
     for(let i = 0; i < avaliableIndexes.length; i++){
-        const score = minimax(children[i], false);
+        const score = minimax(children[i], -Infinity, Infinity, false);
         if(score > bestScore){
             bestScore = score;
             bestMove = avaliableIndexes[i];
@@ -39,7 +39,7 @@ export function findBestMove(givenState, computersChar) {
 
 }
 
-function minimax(state, isMaximizing) {
+function minimax(state, alpha, beta, isMaximizing) {
     
     const stateValue = checkGame(state, maximizingChar);
     if(stateValue !== null) return stateValue;
@@ -47,15 +47,19 @@ function minimax(state, isMaximizing) {
     if(isMaximizing){
         let bestScore = -Infinity;
         for(const child of findChildren(state, maximizingChar)){
-            const score = minimax(child, false);
+            const score = minimax(child, alpha, beta, false);
             bestScore = Math.max(bestScore, score);
+            alpha = Math.max(alpha, score);
+            if(beta <= alpha) break;
         }
         return bestScore;
     }
     let bestScore = Infinity;
     for(const child of findChildren(state, maximizingChar === 'X' ? 'O' : 'X')){
-        const score = minimax(child, true);
+        const score = minimax(child, alpha, beta, true);
         bestScore = Math.min(bestScore, score);
+        beta = Math.min(beta, score);
+        if(beta <= alpha) break;
     }
     return bestScore;
     
