@@ -56,7 +56,7 @@ function restartGame() {
     starter = starter === "player" ? "computer" : "player";
     currentChar = 'X';
     running = true;
-    if(whoseTurn() === "computer") handleComputerMove();
+    if(starter === "computer") handleComputerMove();
 }
 
 function whoseTurn() {
